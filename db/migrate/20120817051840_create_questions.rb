@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :title
       t.string :archiveId
-      t.string :description
+      t.text :description
       t.integer :user_id
       t.integer :up_vote
       t.string :questionType
