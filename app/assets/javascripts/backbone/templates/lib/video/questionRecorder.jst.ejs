@@ -1,0 +1,44 @@
+<div id="questionRecorder">
+  
+  <div class="closeRecorder">
+    <i class="icon-remove-circle"></i>
+  </div>
+  
+  <div class="content container">
+    <div class="player">
+      <span class="loadingPlayer">
+        <i class="icon-facetime-video"></i>
+        loading player...
+      </span>
+    </div>
+    
+   
+        <form id="createQuestion" >
+          <table>
+            <tr>
+              <td class='label'>Title:</td>
+              <td class='input'><input class='title' type="text" name="title" /></td>
+            </tr>
+            <tr>
+              <td class="label">Type:</td>
+              <td class='input'>            
+                <select class='type' name="type">
+                  <option value="algorithm">algorithm</option>
+                  <option value="technical">technical</option>
+                </select>
+              </td>
+            </tr>
+            <tr class='input'>
+              <td class="label">Description:</td>
+              <td><textarea class="description" type="text" name="description" /></textarea></td>
+            </tr>
+          </table>
+          <input class="archiveId" name="archiveId" type="hidden" />
+          <div id="myPublisherDiv"></div>
+          <button class="submit btn"> Sumbit Question</button>
+      </form>
+    
+
+  </div>
+</div>
+<div class="playerDimer"></div>

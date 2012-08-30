@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  archive_link: MyString
+  description: MyString
+  user_id: 1
+  up_vote: 1
+
+two:
+  archive_link: MyString
+  description: MyString
+  user_id: 1
+  up_vote: 1

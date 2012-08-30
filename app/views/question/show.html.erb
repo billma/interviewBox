@@ -1,0 +1,15 @@
+
+<script type="text/javascript">
+  var questionId='<%=@id%>'
+  var userId='<%=cookies[:current_user]%>'
+  var allUsers=new InterviewBox.Collections.UsersCollection()
+  allUsers.fetch()
+  var current_user= new InterviewBox.Models.User({id:userId})
+  current_user.fetch()
+  var questionView=new InterviewBox.Views.ShowQuestionView({
+    id:questionId,
+    allUsers:allUsers,
+    currentUser:current_user
+  })
+  $('#main').append(questionView.render().el)
+</script>

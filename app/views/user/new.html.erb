@@ -1,0 +1,13 @@
+<form id="create_user" action="/create_user" method="post" >
+  name: <input class="name" name="name" type="text" value="<%=@name%>"/> <br />
+  email: <input class="email" name="email" type="text"/><br />
+  <input name="uid" type="hidden" value="<%=@uid%>"/>  
+  <button id="submit">submit</button>
+</form>
+
+<script type="text/javascript">
+  $('#create_user').submit(function(e){
+    if($('#create_user .email').val()=="")
+      e.preventDefault()
+  })
+</script>

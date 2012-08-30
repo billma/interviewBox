@@ -1,0 +1,73 @@
+/*---------------------------*
+ *                           * 
+ *          COMMON           *
+ *                           *
+ *---------------------------*/
+.archive_link{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.75) , 0 1px 0 rgba(255, 255, 255, 0.1);
+  width:150px;
+  height:130px;
+  float:left;
+  margin:5px;
+  padding:5px;
+}
+.q_link{
+  display:block;
+  color:#62DCF8;
+  background:#292929;
+}
+.q_title{
+  margin:5px;
+  display:block;
+}
+.q_preview {
+  position:relative;
+  font-size:25px;
+  width:0px;
+  height:0px;
+  top:10px;
+  left:120px;
+}
+.q_preview:hover{
+  font-size:30px;
+}
+.previewImg{
+  height:100px;
+  z-index:-1;
+/*  opacity:0.1;*/
+}
+  
+/*---------------------------*
+ *                           * 
+ *   eachQuestion template   *
+ *                           *
+ *---------------------------*/
+
+
+/*----------------------------------*
+ *                                  * 
+ *  eachQuestion_preview template   *
+ *                                  *
+ *----------------------------------*/
+
+/*---------------------------*
+ *                           * 
+ *   questionlist template   *
+ *                           *
+ *---------------------------*/
+
+/*---------------------------*
+ *                           * 
+ *  eachQuestion_a template  *
+ *                           *
+ *---------------------------*/
+.category{
+  min-height:100px;}
+
+ /*---------------------------*
+ *                           * 
+ *  eachQuestion_b template  *
+ *                           *
+ *---------------------------*/
+
+ 

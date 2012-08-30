@@ -1,0 +1,33 @@
+
+<!-- <h1><%=cookies[:current_user]%></h1> -->
+
+<style type="text/css">
+
+</style>
+<div id="userProfile">
+
+</div>
+
+
+<div id="questionList"></div>
+<div id="responseList"></div>
+
+
+<script type="text/javascript">
+  
+  var current_user='<%=cookies[:current_user]%>'
+  var user = new InterviewBox.Models.User({id:current_user})
+  var userProfileView= new InterviewBox.Views.UserProfileView({model:user})
+  $('#userProfile').append(userProfileView.render().el)
+  var questions = new InterviewBox.Collections.UserQuestionsCollection({userId:current_user})
+  // var questionListView=new InterviewBox.Views.QuestionListView({questions:questions})
+  var questionListView= new  InterviewBox.Views.QuestionList({collection:questions})
+  $('#questionList').html(questionListView.render_b().el)
+  
+
+  var responses=new InterviewBox.Collections.UserResponsesCollection({userId:current_user})
+  // var responseListView=new InterviewBox.Views.ResponseListView({responses:responses})
+  var responseListView=new InterviewBox.Views.ResponseList({collection:responses})
+  $('#responseList').html(responseListView.render_b().el)
+
+</script>

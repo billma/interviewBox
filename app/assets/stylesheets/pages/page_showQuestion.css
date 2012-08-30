@@ -1,0 +1,68 @@
+#showQuestion .container{
+  width:95%;
+}
+
+#showQuestion .playerContainer{
+  padding:5px;
+  width:500px;
+  height:300px;
+  float:left;
+  margin:10px;
+  background:#EFF7F7;
+  border-radius:10px;
+}
+#showQuestion .questionInfo{
+  border:1px solid red;
+  float:left;
+  width:350px;
+  margin-left:10px;
+ 
+}
+#showQuestion .questionInfo h4{
+  margin:10px;
+  display:block;
+  border-bottom:1px solid black;
+   
+}
+#showQuestion .questionInfo p{
+  display:block;
+  margin:10px;
+  min-height:100px;
+  max-height:150px;
+  border:1px solid #B4B4B4;
+  border-radius:10px;
+  padding:10px;
+  overflow:auto;
+  
+}
+#showQuestion .responseContainer{
+
+  padding-left:35px;
+  float:left;
+  width:600px;
+  min-height:400px;
+  background:#F3F9F9;
+  margin:10px;
+  border-radius:10px;
+}
+#showQuestion .moreQuestions{
+  float:left;
+  margin:10px;
+  padding-left:45px;
+  width:210px;
+  min-height:400px;
+  max-height:600px;
+  background:#EFF7F7;
+  border-radius:10px;
+  
+}
+#showQuestion .leaveResponse{
+  position:relative;
+  top:30px;
+  left:200px;
+}
+#commentForm{
+  height:120px;
+  width:95%;
+  margin:5px auto;
+}

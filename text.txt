@@ -1,0 +1,19 @@
+user
+  name
+  uid       (twitter id)
+  email
+  
+question
+  archive_link 
+  description
+  user_id
+  up_vote
+  
+response 
+  archive_link 
+  comment
+  user_id 
+  question_id
+  
+
+  

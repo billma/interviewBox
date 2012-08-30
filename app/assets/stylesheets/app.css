@@ -1,0 +1,44 @@
+li{
+  list-style:none;
+}
+a, a:hover{
+  text-decoration:none;
+}
+
+
+div{
+/*  border:1px dotted grey;*/
+}
+a{
+/*  border:1px solid red;*/
+}
+ul{
+/*  border:1px solid blue;*/
+  margin-left:0px;
+}
+li{
+/*  border:1px solid green;*/
+}
+form{
+  margin:0px;
+}
+
+header{
+  height:100px;
+}
+nav{
+  position:relative;
+  top:50px;
+  float:right;
+}
+nav li{
+  text-align:center;
+  width:100px;
+  float:left;
+}
+#main{
+  background-color:#E3E3E3;
+  padding:10px;
+  border-radius:10px;
+}
+

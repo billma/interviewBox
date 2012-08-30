@@ -1,0 +1,44 @@
+<style type="text/css">
+  .profileContainer{
+    margin:10px;
+    padding:10px;
+  }
+  .profileContainer div{
+    margin-left:5px;
+    margin-right:5px;
+  }
+  #profileImage{
+    width:73px;
+    float:left;
+   
+  }
+  #profile_info{
+    width:200px;
+    float:left;
+    font-weight:bold;
+  }
+  #profile_info span{
+    display:block;
+    margin:5px;
+  }
+  #profile_info .name{
+    font-size:17px;
+  }
+  #profile_info .email{
+    font-size:12px;
+  }
+  #profile_control{
+    float:left;
+    width:550px;
+  }
+  
+</style>
+<div id="profileImage"><img src="https://api.twitter.com/1/users/profile_image?user_id=<%=uid%>&size=bigger" alt="" /></div>
+<div id="profile_info">
+  <span class='name'><%=name%></span>
+  <span class='email'><%=email%></span>
+</div>
+<div id="profile_control">
+  <button class='btn' id="newQuestion">Create A Interview Question</button>
+</div>
+<div style='clear:both;'></div>

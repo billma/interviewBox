@@ -1,0 +1,32 @@
+
+<style type="text/css">
+#homeList{
+/*  border:1px solid #0C8599;*/
+}
+#homeList .container{
+  width:95%;
+}
+  
+</style>
+<h5>All Interview Questions</h5>
+<div id="homeList">
+  <div id="listControl" class='container'>
+    <button id="listByOrder">listByOrder</button>
+    <button id="listByType">listByType</button>
+  </div>
+
+</div>
+<script type="text/javascript">
+  var questions=new InterviewBox.Collections.AllQuestionsCollection()
+  var questionList=new InterviewBox.Views.QuestionList({collection:questions})
+  $('#homeList').append( questionList.render().el)
+  $('#listByOrder').live('click', function(){
+    $('#homeList').append( questionList.render().el)
+  })
+  $('#listByType').live('click', function(){
+    $('#homeList').append( questionList.render_a().el)
+  })
+  
+  
+
+</script>
