@@ -1,4 +1,4 @@
-<div id="showQuestion" class="container">
+<div id="showQuestion" >
   <div class="top">
     <div class="playerContainer"></div>
   
@@ -6,17 +6,29 @@
       <h4><%=title%></h4>
       <p><%=description%></p>
     </div>
-  
-    <button class="leaveResponse">Record A Reponse</button>
-  
+    <div class="control_panel">
+      <div class="leaveResponse"><i class="icon-share-alt"></i>Record A Reponse</div>
+    </div>
+    
     <div style="clear:both;"></div>
   </div>
+  
+  <div class="right">
+      <div class="moreQuestions floating">
+          <div class="showQuestionHeaders">
+            <span>More Quesiton From Bill</span>
+          </div>
+      </div>
+  </div>
+  
   <div class="bottom">
-    <div class="responseContainer">
-      <!-- <div id="commentForm"></div> -->
+    <div class="responseContainer floating">
+      <div class="showQuestionHeaders">
+        <span>Responses And Comments</span>
+      </div>
       <div id="comment_and_responses"></div>
     </div>
-    <div class="moreQuestions">more questions from this user</div>
+    
     <div style="clear:both;"></div>
   </div>
 </div>

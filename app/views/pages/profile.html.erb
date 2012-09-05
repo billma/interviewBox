@@ -1,16 +1,42 @@
 
-<!-- <h1><%=cookies[:current_user]%></h1> -->
 
 <style type="text/css">
+#userProfile{
+  background:#DDD;
+  height:100px;
+}
+#profilePage{
+  background:url('/images/darkdenim3.png') repeat;
+/*  width:50%;*/
+}
+
+ #questionList{
+   height:200px;
+   box-shadow: 0 1px 200px rgba(0, 0, 0, 0.75) inset, 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+   
+ }
+ #responseList{
+   box-shadow: 0 1px 200px rgba(0, 0, 0, 0.75) inset, 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+   height:160px;
+ }
+ #profileFooter{
+   height:50px;
+   background:#161616;
+ }
 
 </style>
-<div id="userProfile">
-
+<div id="profilePage" class="floating">
+  <div class="floating">
+    <div id="userProfile"></div>
+    <div id="questionList">
+       <h5 class="sub_header">My Questions</h5>
+    </div>
+    <div id="responseList">
+      <h5 class="sub_header">My Responses</h5>
+    </div>
+     <div id="profileFooter"></div>
+  </div>
 </div>
-
-
-<div id="questionList"></div>
-<div id="responseList"></div>
 
 
 <script type="text/javascript">
@@ -20,14 +46,14 @@
   var userProfileView= new InterviewBox.Views.UserProfileView({model:user})
   $('#userProfile').append(userProfileView.render().el)
   var questions = new InterviewBox.Collections.UserQuestionsCollection({userId:current_user})
-  // var questionListView=new InterviewBox.Views.QuestionListView({questions:questions})
+
   var questionListView= new  InterviewBox.Views.QuestionList({collection:questions})
-  $('#questionList').html(questionListView.render_b().el)
+  $('#questionList').append(questionListView.render_b().el)
   
 
   var responses=new InterviewBox.Collections.UserResponsesCollection({userId:current_user})
-  // var responseListView=new InterviewBox.Views.ResponseListView({responses:responses})
+
   var responseListView=new InterviewBox.Views.ResponseList({collection:responses})
-  $('#responseList').html(responseListView.render_b().el)
+  $('#responseList').append(responseListView.render_b().el)
 
 </script>

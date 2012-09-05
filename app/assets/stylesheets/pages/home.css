@@ -1,0 +1,38 @@
+#homeList{
+ 
+
+}
+#homeList .container{
+  width:95%;
+}
+#listControl{
+  padding:8px 5px 8px 5px;
+  border-top-right-radius:5px ;
+  border-top-left-radius:5px ;
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#454545), to(#292929), color-stop(.6,#212121));
+  margin:0 auto;
+}
+#listControl h5{
+  font-size:15px;
+  color:#AAA;
+  float:left;
+  margin-left:5px;
+}
+#listControl span{
+  float:right;
+  margin:0px 5px;
+  font-weight:bold;
+  color:#7D7D7D;
+}
+#listControl span:hover{
+  cursor:pointer;
+}
+#allInterviewQuestion{
+  min-height:150px;
+  margin:0 auto;
+  padding-bottom:30px;
+  padding-top:10px;
+  background:url('/images/brushed_alu.png') repeat;
+  border-bottom-right-radius:5px ;
+  border-bottom-left-radius:5px ;
+}

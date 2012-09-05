@@ -26,6 +26,9 @@ InterviewBox::Application.routes.draw do
   match '/responses/:questionId'=>'response#responses'
   match '/responses_user/:userId'=>'response#userReponses'
   
+  
+  match '/newComment'=>'comment#new'
+  match '/comments/:responseId'=>'comment#getCommentByResponse'
   match '/pusher/auth'=>'pusher#auth'
   # The priority is based upon order of creation:
   # first created -> highest priority.

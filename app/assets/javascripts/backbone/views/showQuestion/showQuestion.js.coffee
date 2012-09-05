@@ -6,7 +6,7 @@ class InterviewBox.Views.ShowQuestionView extends Backbone.View
   initialize:(option)->
     @model=new InterviewBox.Models.Question({id:option['id']})
     @allUsers=option['allUsers']
-  
+    @currentUser=option['currentUser']
   render:->
     @setupPage()
     return this
@@ -37,11 +37,12 @@ class InterviewBox.Views.ShowQuestionView extends Backbone.View
     responses=new InterviewBox.Collections.QResponsesCollection({
       questionId:@model.get('id')
     })
-    responseList=new InterviewBox.Views.ResponseList({collection:responses})
+    responseList=new InterviewBox.Views.ResponseList({
+      collection:responses,
+      currentUser:@currentUser
+    })
     $('#comment_and_responses').append responseList.render().el
-  
-    # commentForm=new InterviewBox.Views.Comment()
-    # $('#commentForm').append commentForm.renderForm().el     
+    
 
   leaveResponse:->
     recorder=new InterviewBox.Views.Recorder({model:@model})

@@ -1,68 +1,86 @@
-#showQuestion .container{
-  width:95%;
+.showQuestionHeaders{
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#454545), to(#292929), color-stop(.6,#212121));
+  color:white;
+  padding:5px;
+}
+
+#showQuestion{
+  width:90%;
+  margin:0 auto;
+  
+}
+#showQuestion .top{
+  width:75%;
+  float:left;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.75) , 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 #showQuestion .playerContainer{
-  padding:5px;
-  width:500px;
+  width:400px;
   height:300px;
   float:left;
-  margin:10px;
-  background:#EFF7F7;
-  border-radius:10px;
 }
+
 #showQuestion .questionInfo{
-  border:1px solid red;
+  background:#DDD;
+  width:234px;
+  height:270px;
+  color:#57585A;
   float:left;
-  width:350px;
-  margin-left:10px;
- 
-}
-#showQuestion .questionInfo h4{
-  margin:10px;
-  display:block;
-  border-bottom:1px solid black;
-   
-}
-#showQuestion .questionInfo p{
-  display:block;
-  margin:10px;
-  min-height:100px;
-  max-height:150px;
-  border:1px solid #B4B4B4;
-  border-radius:10px;
-  padding:10px;
   overflow:auto;
+}
+  #showQuestion .questionInfo h4{
+    margin:10px;
+   
+  }
+  #showQuestion .questionInfo p{
+    margin:10px;
+  }
+#showQuestion .control_panel{
+  float:left;
+  width:234px;
   
 }
-#showQuestion .responseContainer{
+#showQuestion .control_panel .leaveResponse{
+  padding:6px;
+  background:#242424;
+  color:#DDD;
+}
+#showQuestion .control_panel .leaveResponse:hover{
+  cursor:pointer;
+  color:white;
+  background:#121212;
+}
+#showQuestion .control_panel .leaveResponse:active{
+   background:black;
+}
 
-  padding-left:35px;
+
+#showQuestion .right{
+  width:24%;
+  margin-left:1%;
   float:left;
-  width:600px;
-  min-height:400px;
-  background:#F3F9F9;
-  margin:10px;
-  border-radius:10px;
 }
 #showQuestion .moreQuestions{
+  min-height:200px;
+  background:#313131;
+}
+
+#showQuestion .bottom{
+  width:75%;
   float:left;
-  margin:10px;
-  padding-left:45px;
-  width:210px;
-  min-height:400px;
-  max-height:600px;
-  background:#EFF7F7;
-  border-radius:10px;
+  margin-top:10px;
+}
+#showQuestion .responseContainer{
+  min-height:200px;
+  background:#E0E0E0;
+
+}
+#showQuestion .responseContainer_header{
   
 }
-#showQuestion .leaveResponse{
-  position:relative;
-  top:30px;
-  left:200px;
-}
 #commentForm{
-  height:120px;
-  width:95%;
-  margin:5px auto;
+
 }

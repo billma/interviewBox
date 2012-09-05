@@ -2,10 +2,7 @@ class InterviewBox.Views.QuestionList extends Backbone.View
   template: JST["backbone/templates/lib/question/questionList"]
   a_template: JST["backbone/templates/lib/question/questionList_a"]
   b_template : JST["backbone/templates/lib/question/questionList_b"]
-  
-  attributes:
-    class:'container'
-  
+
   initialize:(option)->
     @questions= option['collection']
     @clear='<div style="clear:both;"></div>'
