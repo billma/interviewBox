@@ -25,6 +25,9 @@
   margin-top:5px;
   margin-bottom:5px;
 }
+.comment_b_list_header:hover{
+  cursor:pointer;
+}
   
 .comment_b .comment_b_list{
 
