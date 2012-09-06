@@ -1,7 +1,7 @@
 .showQuestionHeaders{
   border-top-left-radius:3px;
   border-top-right-radius:3px;
-  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#454545), to(#292929), color-stop(.6,#212121));
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#212121), to(#1C1C1C), color-stop(.7,#050505));
   color:white;
   padding:5px;
 }
@@ -24,7 +24,7 @@
 }
 
 #showQuestion .questionInfo{
-  background:#DDD;
+  background:#FFF;
   width:234px;
   height:270px;
   color:#57585A;

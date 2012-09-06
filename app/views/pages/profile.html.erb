@@ -1,24 +1,47 @@
+<style type="text/css">
+#userProfile{
+  background:#DDD;
+  height:100px;
+}
+#profilePage{
+  background:url('/images/darkdenim3.png') repeat;
+  width:90%;
+}
+#questionList{
+   min-height:150px;
+   box-shadow: 0 1px 200px rgba(0, 0, 0, 0.75) inset, 0 1px 0 rgba(255, 255, 255, 0.1) inset;  
+ }
+#questionList .content{
+/*  border:solid 1px red;*/
+  
+}
+#responseList{
+   box-shadow: 0 1px 200px rgba(0, 0, 0, 0.75) inset, 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+   min-height:150px;
+}
+#profileFooter{
+ min-height:50px;
+ background:#161616;
+}
 
+  
+  
+  
+</style>
 <div id="profilePage" class="floating">
   <div class="floating">
+    
     <div id="userProfile"></div>
+    
     <div id="questionList">
        <h5 class="sub_header">My Questions</h5>
-       <div class="content">
-          <p>
-            No Questions Posted. Please Click On 'Create A Interview Question' Button
-            To Start Recording A Question
-         </p>
-       </div>
-
+       <div class="content"></div>
     </div>
+    
+    
     <div id="responseList">
       <h5 class="sub_header">My Responses</h5>
-      <div class="content">
-        <p>
-          You Have Not Posted Any Response yet
-        </p>
-      </div>
+      <div class="content"></div>
     </div>
      <div id="profileFooter"></div>
   </div>
@@ -32,14 +55,14 @@
   var userProfileView= new InterviewBox.Views.UserProfileView({model:user})
   $('#userProfile').append(userProfileView.render().el)
   var questions = new InterviewBox.Collections.UserQuestionsCollection({userId:current_user})
-
+  
   var questionListView= new  InterviewBox.Views.QuestionList({collection:questions})
   $('#questionList .content').html(questionListView.render_b().el)
   
 
-  var responses=new InterviewBox.Collections.UserResponsesCollection({userId:current_user})
-
-  var responseListView=new InterviewBox.Views.ResponseList({collection:responses})
-  $('#responseList .content').html(responseListView.render_b().el)
+  // var responses=new InterviewBox.Collections.UserResponsesCollection({userId:current_user})
+  // 
+  // var responseListView=new InterviewBox.Views.ResponseList({collection:responses})
+  // $('#responseList .content').html(responseListView.render_b().el)
 
 </script>

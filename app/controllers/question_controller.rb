@@ -21,6 +21,7 @@ class QuestionController < ApplicationController
 
   # get all questions from a given user
   def questions
+    
     user=User.find(params[:userId])
     data=user.question
     printa "----"

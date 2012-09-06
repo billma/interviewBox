@@ -7,7 +7,7 @@
   padding:8px 5px 8px 5px;
   border-top-right-radius:5px ;
   border-top-left-radius:5px ;
-  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#454545), to(#292929), color-stop(.6,#212121));
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#212121), to(#1C1C1C), color-stop(.7,#050505));
   margin:0 auto;
 }
 #listControl h5{

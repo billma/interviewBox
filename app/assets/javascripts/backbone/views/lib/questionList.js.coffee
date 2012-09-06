@@ -19,7 +19,7 @@ class InterviewBox.Views.QuestionList extends Backbone.View
     @loadByType()
     return this
     
-  # render questions for a user
+  # render questions for a user (page profile)
   render_b:->
     $(@el).html(@b_template())
     @loadByUser()
@@ -33,6 +33,7 @@ class InterviewBox.Views.QuestionList extends Backbone.View
         linkView=new InterviewBox.Views.ArchiveLinkView({model:question})
         $('#listByTime').append(linkView.render_a().el)
       $('#listByTime').append(self.clear)
+
     
   loadByType:->
     self=@
@@ -44,13 +45,14 @@ class InterviewBox.Views.QuestionList extends Backbone.View
         selector.append linkView.render_a().el
       $('#byType .algorithm .content').append(self.clear)
       $('#byType .technical .content').append(self.clear)
+     
 
   loadByUser:->
     self=@
     @questions.fetch success:()->
       self.questions.each (question)->
         newLink=new InterviewBox.Views.ArchiveLinkView({model:question})
-        $('#QlistContainer').append newLink.render_a().el
+        $('#QlistContainer').append newLink.render_d().el
       $('#QlistContainer').append self.clear
     error:()->
       console.log "error"

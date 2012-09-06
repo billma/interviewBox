@@ -5,6 +5,7 @@ html{
 body{
   background:transparent;
 }
+
 li{
   list-style:none;
 }
@@ -21,7 +22,7 @@ a{
 }
 ul{
 /*  border:1px solid blue;*/
-  margin-left:0px;
+  margin:0px;
 }
 li{
 /*  border:1px solid green;*/

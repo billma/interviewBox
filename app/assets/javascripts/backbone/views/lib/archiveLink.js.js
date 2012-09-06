@@ -11,13 +11,15 @@
       return ArchiveLinkView.__super__.constructor.apply(this, arguments);
     }
 
-    ArchiveLinkView.prototype.template = JST["backbone/templates/lib/question/eachQuestion"];
+    ArchiveLinkView.prototype.template = JST["backbone/templates/lib/question/eachQuestion_simple"];
 
-    ArchiveLinkView.prototype.a_template = JST["backbone/templates/lib/question/eachQuestion_preview"];
+    ArchiveLinkView.prototype.a_template = JST["backbone/templates/lib/question/eachQuestion_fullView"];
 
     ArchiveLinkView.prototype.b_template = JST["backbone/templates/lib/response/eachResponse_a"];
 
     ArchiveLinkView.prototype.c_template = JST["backbone/templates/lib/response/eachResponse_b"];
+
+    ArchiveLinkView.prototype.d_template = JST["backbone/templates/lib/question/eachQuestion_download"];
 
     ArchiveLinkView.prototype.tagName = 'li';
 
@@ -37,6 +39,7 @@
 
     ArchiveLinkView.prototype.render_a = function() {
       $(this.el).html(this.a_template(this.model.toJSON()));
+      this.$('div.timeago').timeago();
       return this;
     };
 
@@ -65,6 +68,12 @@
 
     ArchiveLinkView.prototype.render_c = function() {
       $(this.el).html(this.c_template(this.model.toJSON()));
+      return this;
+    };
+
+    ArchiveLinkView.prototype.render_d = function() {
+      $(this.el).html(this.d_template(this.model.toJSON()));
+      this.$('div.timeago').timeago();
       return this;
     };
 

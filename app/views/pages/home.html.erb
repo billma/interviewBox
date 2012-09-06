@@ -14,13 +14,19 @@
 </div>
 
 <script type="text/javascript">
+
+
+
   var questions=new InterviewBox.Collections.AllQuestionsCollection()
   var questionList=new InterviewBox.Views.QuestionList({collection:questions})
   $('#allInterviewQuestion').append( questionList.render_a().el)
   $('#listByOrder').live('click', function(){
     $('#allInterviewQuestion').append( questionList.render().el)
+  
   })
   $('#listByType').live('click', function(){
     $('#allInterviewQuestion').append( questionList.render_a().el)
+    
   })
+
 </script>

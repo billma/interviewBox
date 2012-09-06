@@ -1,0 +1,131 @@
+<style type="text/css">
+.q_download{
+  display:block;
+  width:250px;
+  float:left;
+  margin:5px 8px 5px 8px;
+  padding:5px;
+  border:1px dotted transparent;
+  border-radius:2px;
+   -webkit-transition: all 0.5s ;
+/*  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1) inset, 0 -1px 2px rgba(255, 255, 255, 0.1) inset;*/
+}
+.q_download:hover{
+/*  border-color:#4B4B4B;*/
+    border-color:#0173A9;
+     -webkit-transition: all 0.5s ;
+}
+.q_download .previewImg{
+  float:left;
+  background:black;
+  width:100px;
+  height:100px;
+  overflow:hidden; 
+}
+.q_download .previewImg span{
+  display:block;
+  width:150px;
+  margin-left:-25px;
+}
+.q_download .previewImg .q_preview{
+  position:relative;
+  float:left;
+  width:100px;
+  height:100px;
+  top:-101px;
+  color:transparent;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 1) inset, 0 -1px 2px rgba(255, 255, 255, 0.1) inset;
+  text-align:center;
+  font-weight:normal;
+  opacity:0.8;
+  -webkit-transition: all 0.5s ;
+}
+.q_download .previewImg .q_preview:hover{
+  color:white;
+  opacity:1;
+  cursor:pointer;
+  -webkit-transition: all 0.5s ;
+}
+.q_download .previewImg .q_preview i{
+  position:relative;
+  top:40px;
+  font-size:30px;
+}
+.q_download .q_info{
+  background:#0F0F0F;
+  float:left;
+  width:140px;
+  height:100px;
+  padding-left:5px;
+  color:#DDD;
+}
+.q_download .q_title{
+  display:block;
+  position:relative;
+  top:1px;
+  font-size:13px;
+  font-weight:bold;
+  vertical-align:top;
+  overflow:hidden;
+}
+.q_download .q_title i{
+  position:relative;
+  top:1px;
+}
+.q_download .q_upVote{
+   display:block;
+   position:relative;
+   top:2px;
+}
+.q_download .q_time{
+   display:block;
+   font-size:11px;
+}
+.q_download .q_downloadButton{
+   position:relative;
+   top:10px;
+   padding:3px;
+   display:block;
+   border-color:#CCC #CCC #AAA;
+   border-top-left-radius:20px;
+   border-bottom-left-radius:20px;
+   border-top-right-radius:5px;
+   border-bottom-right-radius:5px;
+   background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#FAFAFA),color-stop(100%,gainsboro));
+   width:90px;
+   color:#1C1C1C;
+   font-size:12px;
+  font-weight:bold;
+}
+.q_download .q_downloadButton:hover{
+  color:#0173A9;
+  cursor:pointer;
+}
+.q_download .q_downloadButton i{
+  vertical-align:middle;
+  margin-left:5px;
+}
+</style>
+
+<div class="q_download">
+  <div class="previewImg">
+      <span><img  src="<%=image%>"  /></span>
+      <div class="q_preview">
+          <i class="icon-search"></i>
+          <span>preview</span>
+      </div>
+  </div>
+  <div class="q_info">
+      <a href="/showQuestion/<%=id%>" class='q_title'>
+        <i class="icon-circle-arrow-right"></i>
+      <%=title%>
+      </a>
+      <span class="q_upVote">14<i class="icon-thumbs-up"></i></span>
+      <div class="q_time timeago" title="<%=created_at%>"><%=created_at%></div>
+      <span class="q_downloadButton">
+        <i class="icon-download-alt"></i>
+        download
+      </span>
+  </div>
+  
+</div>

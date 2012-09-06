@@ -1,8 +1,10 @@
 class InterviewBox.Views.ArchiveLinkView extends Backbone.View
-  template: JST["backbone/templates/lib/question/eachQuestion"]
-  a_template: JST["backbone/templates/lib/question/eachQuestion_preview"]
+  template: JST["backbone/templates/lib/question/eachQuestion_simple"]
+  a_template: JST["backbone/templates/lib/question/eachQuestion_fullView"]
   b_template: JST["backbone/templates/lib/response/eachResponse_a"]
   c_template: JST["backbone/templates/lib/response/eachResponse_b"]
+  d_template: JST["backbone/templates/lib/question/eachQuestion_download"]
+  
   
   tagName:'li'
 
@@ -20,10 +22,12 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   # list a question w/o preview 
   render:->
     $(@el).html(@template(@model.toJSON()))
+    
     return this
   # list a question w preview
   render_a:->
     $(@el).html(@a_template(@model.toJSON()))
+    @.$('div.timeago').timeago()
     return this
  
   # list a response with user icon (for showquestion page)
@@ -41,12 +45,16 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
       self.$('.responseComment').append(comment.render_b().el)
     return this
     
-    
   # list a reponse w/o user icon (for profile page)
   render_c:->
     $(@el).html(@c_template(@model.toJSON()))
     return this
-    
+  
+  # render a question with download button
+  render_d:->
+    $(@el).html(@d_template(@model.toJSON()))
+    @.$('div.timeago').timeago()
+    return this
 
   previewVideo:->
     player=new InterviewBox.Views.VideoPlayer({model:@model})
