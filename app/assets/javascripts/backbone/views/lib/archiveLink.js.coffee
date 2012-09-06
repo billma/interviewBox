@@ -1,8 +1,8 @@
 class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   template: JST["backbone/templates/lib/question/eachQuestion_simple"]
   a_template: JST["backbone/templates/lib/question/eachQuestion_fullView"]
-  b_template: JST["backbone/templates/lib/response/eachResponse_a"]
-  c_template: JST["backbone/templates/lib/response/eachResponse_b"]
+  b_template: JST["backbone/templates/lib/response/eachResponse_icon"]
+  c_template: JST["backbone/templates/lib/response/eachResponse_download"]
   d_template: JST["backbone/templates/lib/question/eachQuestion_download"]
   
   
@@ -11,7 +11,7 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
       
   events:
     'click .q_preview':'previewVideo'
-    'click .r_play':'previewVideo'
+    'click .r_preview':'previewVideo'
     
   initialize:(option)->
     @current_user=option['current_user']
@@ -43,11 +43,13 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
         current_user:self.current_user
       })
       self.$('.responseComment').append(comment.render_b().el)
+    @.$('div.timeago').timeago()
     return this
     
   # list a reponse w/o user icon (for profile page)
   render_c:->
     $(@el).html(@c_template(@model.toJSON()))
+    @.$('div.timeago').timeago()
     return this
   
   # render a question with download button

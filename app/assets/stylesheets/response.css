@@ -9,14 +9,35 @@
 
 
 }
-.r_link_container{
+
+/*------------------------------*
+ *                              * 
+ * eachResponse_icon template   *
+ *                              *
+ *------------------------------*/
+.eachResponse_icon{
+  border:1px solid #AAA;
+  background:#EEE;
+  margin:10px;
+  padding:10px 5px 10px 10px;
+  border-radius:5px;
+  
+}
+.eachResponse_icon .responseComment{
+  border-left:solid 1px #FFF;
+  min-height:50px;
+  float:left;
+  width:390px;
+  margin-left:10px; 
+}
+.eachResponse_icon .r_link_container{
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.75) , 0 1px 0 rgba(255, 255, 255, 0.1);
   float:left;
   width:130px;
   height:100px;
   background:#2F2F2F;
 }
-.r_play {
+.eachResponse_icon .r_preview {
   float:left;
   position:relative;
   border-radius:100px;
@@ -30,12 +51,12 @@
   opacity:0.2;
     -webkit-transition: opacity 0.5s ;
 }
-.r_play:hover{
+.eachResponse_icon .r_preview:hover{
     -webkit-transition: opacity 0.5s ;
   opacity:0.7;
   cursor:pointer;
 }
-.r_play i{
+.eachResponse_icon .r_preview i{
   color:#B4B4B4;
   font-size:50px;
   position:relative;
@@ -43,16 +64,13 @@
   top:14px;
 
 }
-.r_link img{
-   
+.eachResponse_icon .r_link img{
   position:relative;
   float:left;
   height:100px;
   z-index:1;
-/*  opacity:0.8;*/
 }
-.user_icon{
-
+.eachResponse_icon .user_icon{
   float:left;
   margin-right:15px;
   border-radius:5px;
@@ -61,40 +79,113 @@
 }
 /*---------------------------*
  *                           * 
- * eachResponse_a template   *
- *                           *
- *---------------------------*/
-.eachResponse_a{
-  border:1px solid #AAA;
-  background:#EEE;
-  margin:10px;
-  padding:10px 5px 10px 10px;
-  border-radius:5px;
-  
-}
-.eachResponse_a .responseComment{
-  border-left:solid 1px #FFF;
-  min-height:50px;
-  float:left;
-  width:390px;
-  margin-left:10px;
-  
-  
-}
-/*---------------------------*
- *                           * 
  * eachResponse_b template   *
  *                           *
  *---------------------------*/
 
-.eachResponse_b{
-
-  width:130px;
-  height:80px;
+.eachResponse_download{
+  display:block;
+  width:250px;
   float:left;
-  margin:10px;
+  margin:5px 8px 5px 8px;
   padding:5px;
-  border-radius:5px;}
+  border:1px dotted transparent;
+  border-radius:2px;
+  -webkit-transition: all 0.5s ;
+}
+.eachResponse_download:hover{
+
+    border-color:#0173A9;
+     -webkit-transition: all 0.5s ;
+}
+.eachResponse_download .previewImg{
+  float:left;
+  background:black;
+  width:100px;
+  height:100px;
+  overflow:hidden; 
+}
+.eachResponse_download .previewImg span{
+  display:block;
+  width:150px;
+  margin-left:-25px;
+}
+.eachResponse_download .previewImg .r_preview{
+  position:relative;
+  float:left;
+  width:100px;
+  height:100px;
+  top:-101px;
+  color:transparent;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 1) inset, 0 -1px 2px rgba(255, 255, 255, 0.1) inset;
+  text-align:center;
+  font-weight:normal;
+  opacity:0.8;
+  -webkit-transition: all 0.5s ;
+}
+.eachResponse_download .previewImg .r_preview:hover{
+  color:white;
+  opacity:1;
+  cursor:pointer;
+  -webkit-transition: all 0.5s ;
+}
+.eachResponse_download .previewImg .r_preview i{
+  position:relative;
+  top:40px;
+  font-size:30px;
+}
+.eachResponse_download .r_info{
+  background:#0F0F0F;
+  float:left;
+  width:140px;
+  height:100px;
+  padding-left:5px;
+  color:#DDD;
+}
+.eachResponse_download .r_showQuestionButton{
+  display:block;
+  position:relative;
+  top:1px;
+  right:2px;
+  width:100%;
+  height:20px;
+  font-size:13px;
+  
+}
+.eachResponse_download .r_showQuestionButton i{
+  position:relative;
+  top:1px;
+}
+.eachResponse_download .r_time{
+   display:block;
+   font-size:11px;
+   color:#606060;
+}
+.eachResponse_download .r_downloadButton{
+   position:relative;
+   top:10px;
+   padding:3px;
+   display:block;
+   border-color:#CCC #CCC #AAA;
+   border-top-left-radius:20px;
+   border-bottom-left-radius:20px;
+   border-top-right-radius:5px;
+   border-bottom-right-radius:5px;
+   background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#FAFAFA),color-stop(100%,gainsboro));
+   width:90px;
+   color:#1C1C1C;
+   font-size:12px;
+  font-weight:bold;
+}
+.eachResponse_download .r_downloadButton:hover{
+  color:#0173A9;
+  cursor:pointer;
+}
+.eachResponse_download .r_downloadButton i{
+  vertical-align:middle;
+  margin-left:5px;
+}
+  
 /*---------------------------*
  *                           * 
  * responseList template     *

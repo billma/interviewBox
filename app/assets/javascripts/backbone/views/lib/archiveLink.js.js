@@ -15,9 +15,9 @@
 
     ArchiveLinkView.prototype.a_template = JST["backbone/templates/lib/question/eachQuestion_fullView"];
 
-    ArchiveLinkView.prototype.b_template = JST["backbone/templates/lib/response/eachResponse_a"];
+    ArchiveLinkView.prototype.b_template = JST["backbone/templates/lib/response/eachResponse_icon"];
 
-    ArchiveLinkView.prototype.c_template = JST["backbone/templates/lib/response/eachResponse_b"];
+    ArchiveLinkView.prototype.c_template = JST["backbone/templates/lib/response/eachResponse_download"];
 
     ArchiveLinkView.prototype.d_template = JST["backbone/templates/lib/question/eachQuestion_download"];
 
@@ -25,7 +25,7 @@
 
     ArchiveLinkView.prototype.events = {
       'click .q_preview': 'previewVideo',
-      'click .r_play': 'previewVideo'
+      'click .r_preview': 'previewVideo'
     };
 
     ArchiveLinkView.prototype.initialize = function(option) {
@@ -63,11 +63,13 @@
           return self.$('.responseComment').append(comment.render_b().el);
         }
       });
+      this.$('div.timeago').timeago();
       return this;
     };
 
     ArchiveLinkView.prototype.render_c = function() {
       $(this.el).html(this.c_template(this.model.toJSON()));
+      this.$('div.timeago').timeago();
       return this;
     };
 

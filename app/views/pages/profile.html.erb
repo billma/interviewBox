@@ -60,9 +60,9 @@
   $('#questionList .content').html(questionListView.render_b().el)
   
 
-  // var responses=new InterviewBox.Collections.UserResponsesCollection({userId:current_user})
-  // 
-  // var responseListView=new InterviewBox.Views.ResponseList({collection:responses})
-  // $('#responseList .content').html(responseListView.render_b().el)
+  var responses=new InterviewBox.Collections.UserResponsesCollection({userId:current_user})
+  
+  var responseListView=new InterviewBox.Views.ResponseList({collection:responses})
+  $('#responseList .content').html(responseListView.render_b().el)
 
 </script>
