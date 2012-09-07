@@ -13,9 +13,10 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
     'click .q_preview':'previewVideo'
     'click .r_preview':'previewVideo'
     
+    
   initialize:(option)->
     @current_user=option['current_user']
-
+    
 
     
     
@@ -24,11 +25,19 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
     $(@el).html(@template(@model.toJSON()))
     
     return this
-  # list a question w preview
+  # list a question fullView
   render_a:->
-    $(@el).html(@a_template(@model.toJSON()))
-    @.$('div.timeago').timeago()
-    return this
+    self=@
+    $.post '/getVoteCount',{question_id:@model.get('id')},(data)->
+      user=new InterviewBox.Models.User({id:self.model.get('user_id')})
+      user.fetch success:->
+        self.model.set({
+          up_vote:data,
+          userName:user.get('name')
+        })
+        $(self.el).html(self.a_template(self.model.toJSON()))
+        self.$('div.timeago').timeago()
+    return self
  
   # list a response with user icon (for showquestion page)
   render_b:->
@@ -37,7 +46,6 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
     user.fetch success:()->
       self.model.set({twitterId:user.get('uid')})
       $(self.el).html(self.b_template(self.model.toJSON()))
-      
       comment=new InterviewBox.Views.Comment({
         response:self.model,
         current_user:self.current_user
@@ -54,8 +62,11 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   
   # render a question with download button
   render_d:->
-    $(@el).html(@d_template(@model.toJSON()))
-    @.$('div.timeago').timeago()
+    self=@
+    $.post '/getVoteCount',{question_id:@model.get('id')},(data)->
+      self.model.set({up_vote:data})
+      $(self.el).html(self.d_template(self.model.toJSON()))
+      self.$('div.timeago').timeago()
     return this
 
   previewVideo:->

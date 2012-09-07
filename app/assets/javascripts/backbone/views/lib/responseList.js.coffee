@@ -16,11 +16,14 @@ class InterviewBox.Views.ResponseList extends Backbone.View
     $(@el).html(@template())
     @list_b()
     return this
-  # list response with an user icon
+  # list response with an user icon and commentbox
   List_a:->
     self=@
+
     @responses.fetch success:()->
       self.responses.each (response)->
+        console.log 'ResponseList -> list_a...'
+        console.log self.current_user
         responseView=new InterviewBox.Views.ArchiveLinkView({
           model:response,
           current_user:self.current_user

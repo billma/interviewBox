@@ -85,7 +85,8 @@
         }, function(data) {
           console.log(data);
           self.uploadImage(self.recImgData, archiveId, 'response');
-          return self.removeRecorder();
+          self.removeRecorder();
+          return self.trigger('finishedRecording');
         });
       }
     };

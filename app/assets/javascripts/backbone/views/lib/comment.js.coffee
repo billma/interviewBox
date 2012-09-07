@@ -40,12 +40,9 @@ class InterviewBox.Views.Comment extends Backbone.View
         showCommentMsg:msg
       })
       comments.each (comment)->
-        user=new InterviewBox.Models.User({id:comment.get('user_id')})
-        
+        user=new InterviewBox.Models.User({id:comment.get('user_id')})   
         user.fetch success:()->
-          console.log comment
           uid=user.get('uid')
-          # console.log comment
 
           $(self.el).find('.comment_b_list_content').append self.template({
             uid:uid,

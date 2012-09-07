@@ -14,7 +14,9 @@
     ShowQuestionView.prototype.template = JST["backbone/templates/showQuestion/showQuestion"];
 
     ShowQuestionView.prototype.events = {
-      'click .leaveResponse': 'leaveResponse'
+      'click .leaveResponse': 'leaveResponse',
+      'click .up_vote': 'upVote',
+      'click .down_vote': 'undoVote'
     };
 
     ShowQuestionView.prototype.initialize = function(option) {
@@ -22,7 +24,8 @@
         id: option['id']
       });
       this.allUsers = option['allUsers'];
-      return this.currentUser = option['currentUser'];
+      this.currentUser = option['currentUser'];
+      return this.on('changeVote', this.refreshVote);
     };
 
     ShowQuestionView.prototype.render = function() {
@@ -35,18 +38,41 @@
       self = this;
       return this.model.fetch({
         success: function() {
-          self.loadVideo();
-          self.getAllUserVideo();
-          return self.getAllResponse();
+          var user;
+          user = new InterviewBox.Models.User({
+            id: self.model.get('user_id')
+          });
+          return user.fetch({
+            success: function() {
+              return $.post('/getVoteCount', {
+                question_id: self.model.get('id')
+              }, function(data) {
+                self.setupTemplate(data, user);
+                self.setupVoteBotton();
+                self.loadVideo(data);
+                self.getAllUserVideo();
+                return self.getAllResponse();
+              });
+            }
+          });
         }
       });
     };
 
-    ShowQuestionView.prototype.loadVideo = function() {
-      var video;
+    ShowQuestionView.prototype.setupTemplate = function(data, user) {
+      this.model.set({
+        up_vote: data,
+        userName: user.get('name')
+      });
       $(this.el).html(this.template(this.model.toJSON()));
+      return this.$('.questionInfo .timeago').timeago();
+    };
+
+    ShowQuestionView.prototype.loadVideo = function(data) {
+      var self, video;
+      self = this;
       video = new InterviewBox.Views.VideoPlayer({
-        model: this.model
+        model: self.model
       });
       return $('.playerContainer').append(video.renderVideo().el);
     };
@@ -78,19 +104,78 @@
       responses = new InterviewBox.Collections.QResponsesCollection({
         questionId: this.model.get('id')
       });
+      console.log('getAllResponse...');
+      console.log(this.currentUser);
       responseList = new InterviewBox.Views.ResponseList({
         collection: responses,
         currentUser: this.currentUser
       });
-      return $('#comment_and_responses').append(responseList.render().el);
+      return $('#comment_and_responses').html(responseList.render().el);
     };
 
     ShowQuestionView.prototype.leaveResponse = function() {
-      var recorder;
+      var recorder, self;
+      self = this;
       recorder = new InterviewBox.Views.Recorder({
         model: this.model
       });
+      recorder.on('finishedRecording', function() {
+        return self.getAllResponse();
+      });
       return $('html').prepend(recorder.renderResponseRecorder().el);
+    };
+
+    ShowQuestionView.prototype.setupVoteBotton = function() {
+      var self;
+      self = this;
+      return $.post('/checkVote', {
+        question_id: this.model.get('id')
+      }, function(hasBeenRated) {
+        if (hasBeenRated === true) {
+          self.$('.vote .up_vote').hide();
+          return self.$('.vote .down_vote').show();
+        } else {
+          self.$('.vote .up_vote').show();
+          return self.$('.vote .down_vote').hide();
+        }
+      });
+    };
+
+    ShowQuestionView.prototype.upVote = function() {
+      var self;
+      self = this;
+      return $.post('/upVote', {
+        question_id: this.model.get('id')
+      }, function(data) {
+        self.trigger('changeVote');
+        return self.toggleVoteButton();
+      });
+    };
+
+    ShowQuestionView.prototype.undoVote = function() {
+      var self;
+      self = this;
+      return $.post('/downVote', {
+        question_id: this.model.get('id')
+      }, function(data) {
+        self.trigger('changeVote');
+        return self.toggleVoteButton();
+      });
+    };
+
+    ShowQuestionView.prototype.refreshVote = function() {
+      var self;
+      self = this;
+      return $.post('/getVoteCount', {
+        question_id: this.model.get('id')
+      }, function(data) {
+        return self.$('.voteInfo span').text(data);
+      });
+    };
+
+    ShowQuestionView.prototype.toggleVoteButton = function() {
+      this.$('.vote .up_vote').toggle();
+      return this.$('.vote .down_vote').toggle();
     };
 
     return ShowQuestionView;

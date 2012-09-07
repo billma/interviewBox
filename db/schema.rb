@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905013133) do
+ActiveRecord::Schema.define(:version => 20120907080705) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20120905013133) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "image"
+    t.string   "videoId"
+    t.string   "downloadUrl"
   end
 
   create_table "responses", :force => true do |t|
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20120905013133) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "image"
+    t.string   "videoId"
+    t.string   "downloadUrl"
   end
 
   create_table "users", :force => true do |t|
@@ -49,6 +53,14 @@ ActiveRecord::Schema.define(:version => 20120905013133) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "response_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

@@ -38,6 +38,8 @@
         success: function() {
           self.responses.each(function(response) {
             var responseView;
+            console.log('ResponseList -> list_a...');
+            console.log(self.current_user);
             responseView = new InterviewBox.Views.ArchiveLinkView({
               model: response,
               current_user: self.current_user

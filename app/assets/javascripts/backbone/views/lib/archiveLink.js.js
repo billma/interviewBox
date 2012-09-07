@@ -38,9 +38,27 @@
     };
 
     ArchiveLinkView.prototype.render_a = function() {
-      $(this.el).html(this.a_template(this.model.toJSON()));
-      this.$('div.timeago').timeago();
-      return this;
+      var self;
+      self = this;
+      $.post('/getVoteCount', {
+        question_id: this.model.get('id')
+      }, function(data) {
+        var user;
+        user = new InterviewBox.Models.User({
+          id: self.model.get('user_id')
+        });
+        return user.fetch({
+          success: function() {
+            self.model.set({
+              up_vote: data,
+              userName: user.get('name')
+            });
+            $(self.el).html(self.a_template(self.model.toJSON()));
+            return self.$('div.timeago').timeago();
+          }
+        });
+      });
+      return self;
     };
 
     ArchiveLinkView.prototype.render_b = function() {
@@ -74,8 +92,17 @@
     };
 
     ArchiveLinkView.prototype.render_d = function() {
-      $(this.el).html(this.d_template(this.model.toJSON()));
-      this.$('div.timeago').timeago();
+      var self;
+      self = this;
+      $.post('/getVoteCount', {
+        question_id: this.model.get('id')
+      }, function(data) {
+        self.model.set({
+          up_vote: data
+        });
+        $(self.el).html(self.d_template(self.model.toJSON()));
+        return self.$('div.timeago').timeago();
+      });
       return this;
     };
 

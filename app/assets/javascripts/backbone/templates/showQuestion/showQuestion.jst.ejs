@@ -1,9 +1,29 @@
 <div id="showQuestion" >
   <div class="top">
-    <div class="topheader showQuestionHeaders">Current Question <i class=" icon-caret-right"></i><%=title%></div>
+    <div class="topheader showQuestionHeaders">
+      <div class="currentQuestion">
+         Current Question <i class=" icon-caret-right"></i><%=title%>
+      </div>
+      <div class="vote">
+        <span class="up_vote hide">
+          <i class="icon-thumbs-up "></i>
+          like
+        </span>
+        <span class="down_vote hide">
+          <i class="icon-thumbs-down"></i>
+          unlike
+        </span>
+      </div>
+      <div style='clear:both;'></div>
+    </div>
     <div class="playerContainer"></div>
     <div class="questionInfo">
       <h4><%=title%> <i class="icon-info-sign"></i></h4>
+      <span class="voteInfo">
+        <span><%=up_vote%></span>
+        <i class="icon-thumbs-up"></i>
+      </span>
+       <span class="timeago" title="<%=created_at%>"><%=created_at%></span>
       <p><%=description%></p>
     </div>
     <div class="control_panel">
@@ -16,7 +36,7 @@
   <div class="right">
       <div class="moreQuestions floating">
           <div class="showQuestionHeaders">
-            <span>More Quesiton From Bill</span>
+            <span>More From <%=userName%></span>
           </div>
       </div>
   </div>

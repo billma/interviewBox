@@ -1,5 +1,8 @@
 InterviewBox::Application.routes.draw do
+
+
   root :to => 'pages#login'
+  match '/index'=>'test#index'
   match '/auth/twitter/callback' =>'session#create'
   match '/logout'=>'session#destroy'
   match '/generateToken'=>'session#generateToken'
@@ -29,6 +32,13 @@ InterviewBox::Application.routes.draw do
   
   match '/newComment'=>'comment#new'
   match '/comments/:responseId'=>'comment#getCommentByResponse'
+  
+  match '/checkVote'=>'vote#checkVote'
+
+  match '/upVote'=>'vote#upVote'
+  match '/downVote'=>'vote#downVote'
+  match '/getVoteCount'=>'vote#getVoteCount'
+  
   match '/pusher/auth'=>'pusher#auth'
   # The priority is based upon order of creation:
   # first created -> highest priority.

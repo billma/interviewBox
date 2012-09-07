@@ -65,7 +65,6 @@
             return user.fetch({
               success: function() {
                 var uid;
-                console.log(comment);
                 uid = user.get('uid');
                 return $(self.el).find('.comment_b_list_content').append(self.template({
                   uid: uid,

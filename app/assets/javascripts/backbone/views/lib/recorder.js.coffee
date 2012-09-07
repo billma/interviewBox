@@ -58,6 +58,7 @@ class InterviewBox.Views.Recorder extends Backbone.View
         console.log data
         self.uploadImage(self.recImgData,archiveId,'response')
         self.removeRecorder()
+        self.trigger('finishedRecording')
   
   
   uploadImage:(data,id,imageFor)->
