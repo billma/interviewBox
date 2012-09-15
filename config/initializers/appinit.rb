@@ -9,5 +9,5 @@ Pusher.secret = '8b8ec80dbfc222b8a337'
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter, 'DKvYwZsq7m4ZrkmitxGOQ','LSbTi7X8FfFLAwguMhhOF6DdktAYwyS24CxdJF7c'
-                                               
+                                             
 end

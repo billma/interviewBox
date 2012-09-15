@@ -12,10 +12,9 @@ class ResponseController < ApplicationController
     toArchive=TBO.get_archive_manifest(params[:archiveId],token)
     toVideoResource=toArchive.resources[0]
     videoId=toVideoResource.getId()
-    url = toArchive.downloadArchiveURL(videoId, token)
+
     response.update_attributes({
       :videoId=>videoId,
-      :downloadUrl=>url
     })
     response.save
     render :json=>response

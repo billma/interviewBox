@@ -10,7 +10,7 @@ gem 'pg'
 group :development, :test do 
   gem 'sqlite3'
 end
-gem 'opentok'
+gem 'opentok','0.0.91'
 gem 'pusher'
 gem 'thin'
 gem 'omniauth-twitter'

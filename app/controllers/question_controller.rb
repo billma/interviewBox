@@ -16,10 +16,10 @@ class QuestionController < ApplicationController
     toArchive=TBO.get_archive_manifest(params[:archiveId],token)
     toVideoResource=toArchive.resources[0]
     videoId=toVideoResource.getId()
-    url = toArchive.downloadArchiveURL(videoId, token)
+
     newQuestion.update_attributes({
       :videoId=>videoId,
-      :downloadUrl=>url
+
     })
     newQuestion.save
     render :json=> newQuestion
@@ -32,13 +32,17 @@ class QuestionController < ApplicationController
   end 
 
   # get all questions from a given user
-  def questions
-    
+  def questionsByUser
     user=User.find(params[:userId])
     data=user.question
     printa "----"
     printa data
     render :json=> data
+  end 
+  
+  def questionsByType
+    data=Question.where(:questionType=>params[:type])
+    render :json=>data
   end 
   # get all questions regardless of user
   def all

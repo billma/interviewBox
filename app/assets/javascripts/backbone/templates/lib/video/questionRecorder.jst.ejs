@@ -5,6 +5,11 @@
   </div>
   
   <div class="content container">
+    <div class="moreQuestions floating">
+        <div class="showQuestionHeaders">
+          <span>Recorder</span>
+        </div>
+    </div>
     <div class="player">
       <span class="loadingPlayer">
         <i class="icon-facetime-video"></i>
@@ -14,11 +19,11 @@
         <form id="createQuestion" >
           <table>
             <tr>
-              <td class='label'>Title:</td>
+              <td class='label'><span>Title:</span></td>
               <td class='input'><input class='title' type="text" name="title" /></td>
             </tr>
             <tr>
-              <td class="label">Type:</td>
+              <td class="label"><span>Type:</span></td>
               <td class='input'>            
                 <select class='type' name="type">
                   <option value="algorithm">algorithm</option>
@@ -27,13 +32,15 @@
               </td>
             </tr>
             <tr class='input'>
-              <td class="label">Description:</td>
+              <td class="label"><span>Description:</span></td>
               <td><textarea class="description" type="text" name="description" /></textarea></td>
             </tr>
           </table>
           <input class="archiveId" name="archiveId" type="hidden" />
-          <div id="myPublisherDiv"></div>
-          <button class="submit btn"> Sumbit Question</button>
+          <div class="form_footer">
+            <button class="submit"> Sumbit Question</button>
+          </div>
+          
       </form>
     
 

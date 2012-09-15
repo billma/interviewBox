@@ -5,6 +5,10 @@
   color:white;
   padding:5px;
 }
+#showQuestion .left{
+  width:68%;
+  float:left;
+}
 #showQuestion .currentQuestion{
   display:block;
   float:left;
@@ -35,12 +39,12 @@
 }
 
 #showQuestion{
-  width:90%;
+  width:100%;
   margin:0 auto;
   
 }
 #showQuestion .top{
-  width:75%;
+  width:100%;
   float:left;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.75) , 0 1px 0 rgba(255, 255, 255, 0.1);
 }
@@ -53,7 +57,7 @@
 
 #showQuestion .questionInfo{
   background:#FFF;
-  width:234px;
+  width:239px;
   height:270px;
   color:#57585A;
   float:left;
@@ -72,7 +76,7 @@
   }
 #showQuestion .control_panel{
   float:left;
-  width:234px;
+  width:239px;
   
 }
 #showQuestion .control_panel .leaveResponse{
@@ -94,14 +98,21 @@
   width:24%;
   margin-left:1%;
   float:left;
+  float:left;
+  height:500px;
 }
 #showQuestion .moreQuestions{
   min-height:200px;
   background:#313131;
+  margin-bottom:10px;
 }
-
+#showQuestion .moreQuestions_type{
+  min-height:200px;
+  background:#313131;
+  text-transform:capitalize;
+}
 #showQuestion .bottom{
-  width:75%;
+  width:100%;
   float:left;
   margin-top:10px;
 }

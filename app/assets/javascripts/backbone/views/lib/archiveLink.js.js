@@ -25,7 +25,9 @@
 
     ArchiveLinkView.prototype.events = {
       'click .q_preview': 'previewVideo',
-      'click .r_preview': 'previewVideo'
+      'click .r_preview': 'previewVideo',
+      'click .q_downloadButton': 'getDownloadLink',
+      'click .r_downloadButton': 'getDownloadLink'
     };
 
     ArchiveLinkView.prototype.initialize = function(option) {
@@ -112,6 +114,23 @@
         model: this.model
       });
       return $('html').append(player.render().el);
+    };
+
+    ArchiveLinkView.prototype.getDownloadLink = function() {
+      var self;
+      self = this;
+      self.$('.downloading_gif').show();
+      self.$('.icon-download-alt').hide();
+      return $.post('/getDownloadLink', {
+        videoId: self.model.get('videoId'),
+        archiveId: self.model.get('archiveId')
+      }, function(link) {
+        var downloadLink;
+        downloadLink = link['url'];
+        window.location = downloadLink;
+        self.$('.downloading_gif').hide();
+        return self.$('.icon-download-alt').show();
+      });
     };
 
     return ArchiveLinkView;

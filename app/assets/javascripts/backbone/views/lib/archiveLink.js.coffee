@@ -12,12 +12,11 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   events:
     'click .q_preview':'previewVideo'
     'click .r_preview':'previewVideo'
-    
-    
+    'click .q_downloadButton':'getDownloadLink'
+    'click .r_downloadButton':'getDownloadLink'
+   
   initialize:(option)->
     @current_user=option['current_user']
-    
-
     
     
   # list a question w/o preview 
@@ -72,3 +71,16 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   previewVideo:->
     player=new InterviewBox.Views.VideoPlayer({model:@model})
     $('html').append(player.render().el)
+  getDownloadLink:-> 
+    self=@
+    self.$('.downloading_gif').show()
+    self.$('.icon-download-alt').hide()
+    $.post '/getDownloadLink',{
+      videoId:self.model.get('videoId'),
+      archiveId:self.model.get('archiveId')
+    },(link)->
+      downloadLink=link['url']
+      window.location =downloadLink
+      self.$('.downloading_gif').hide()
+      self.$('.icon-download-alt').show()
+      

@@ -6,6 +6,7 @@ InterviewBox::Application.routes.draw do
   match '/auth/twitter/callback' =>'session#create'
   match '/logout'=>'session#destroy'
   match '/generateToken'=>'session#generateToken'
+  match '/getDownloadLink'=>'session#getDownloadLink'
   
   match '/uploadImage'=>'upload#uploadImage'
   
@@ -19,7 +20,8 @@ InterviewBox::Application.routes.draw do
   
   match '/newQuestion'=>'question#new'
   match '/createQuestion'=>'question#create'
-  match '/questions/:userId'=>'question#questions'
+  match '/questions/:userId'=>'question#questionsByUser'
+  match '/questionsByType/:type'=>'question#questionsByType'
   match '/questionsAll'=>'question#all'
   match '/showQuestion/:id'=>'question#show'
   match '/getQuestionModel/:id'=>"question#getModel"

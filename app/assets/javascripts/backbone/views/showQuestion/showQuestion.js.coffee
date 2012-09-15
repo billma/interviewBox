@@ -25,6 +25,7 @@ class InterviewBox.Views.ShowQuestionView extends Backbone.View
           self.loadVideo(data)
           self.getAllUserVideo()
           self.getAllResponse()
+          self.getAllQuestionByType()
 
   setupTemplate:(data,user)->
     @model.set({
@@ -47,13 +48,20 @@ class InterviewBox.Views.ShowQuestionView extends Backbone.View
       self.allVideo.each (question)->
          videoLink=new InterviewBox.Views.ArchiveLinkView({model:question})
          $('.moreQuestions').append videoLink.render().el
-         
+  getAllQuestionByType:->
+    self=@
+    @allTypeQuestions=new InterviewBox.Collections.TypeQuestionsCollection({type:@model.get('questionType')})  
+    @allTypeQuestions.fetch success:()->
+      current=self.allTypeQuestions.get(self.model.get('id'))
+      self.allTypeQuestions.remove(current)
+      self.allTypeQuestions.each (question)->
+        videoLink=videoLink=new InterviewBox.Views.ArchiveLinkView({model:question})
+        $('.moreQuestions_type').append videoLink.render().el
+    
   getAllResponse:->
     responses=new InterviewBox.Collections.QResponsesCollection({
       questionId:@model.get('id')
     })
-    console.log 'getAllResponse...'
-    console.log @currentUser
     responseList=new InterviewBox.Views.ResponseList({
       collection:responses,
       currentUser:@currentUser

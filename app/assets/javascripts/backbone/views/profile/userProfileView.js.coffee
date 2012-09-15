@@ -7,7 +7,6 @@ class InterviewBox.Views.UserProfileView extends Backbone.View
     'click #newQuestion':'activateRecorder'
   
   initialize:->
-
   render:->
     self=@
     @model.fetch success:->

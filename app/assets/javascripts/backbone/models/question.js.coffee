@@ -15,7 +15,15 @@ class InterviewBox.Collections.UserQuestionsCollection extends Backbone.Collecti
   initialize:(option)->
     @userId=option['userId']
 
-
+class InterviewBox.Collections.TypeQuestionsCollection extends Backbone.Collection
+  model: InterviewBox.Models.Question
+  url: ()->
+    return "/questionsByType/"+@type
+    
+  initialize:(option)->
+    @type=option['type']
+    
+    
 class InterviewBox.Collections.AllQuestionsCollection extends Backbone.Collection
   model: InterviewBox.Models.Question
   url:'/questionsAll'

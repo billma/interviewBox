@@ -51,7 +51,8 @@
                 self.setupVoteBotton();
                 self.loadVideo(data);
                 self.getAllUserVideo();
-                return self.getAllResponse();
+                self.getAllResponse();
+                return self.getAllQuestionByType();
               });
             }
           });
@@ -99,13 +100,33 @@
       });
     };
 
+    ShowQuestionView.prototype.getAllQuestionByType = function() {
+      var self;
+      self = this;
+      this.allTypeQuestions = new InterviewBox.Collections.TypeQuestionsCollection({
+        type: this.model.get('questionType')
+      });
+      return this.allTypeQuestions.fetch({
+        success: function() {
+          var current;
+          current = self.allTypeQuestions.get(self.model.get('id'));
+          self.allTypeQuestions.remove(current);
+          return self.allTypeQuestions.each(function(question) {
+            var videoLink;
+            videoLink = videoLink = new InterviewBox.Views.ArchiveLinkView({
+              model: question
+            });
+            return $('.moreQuestions_type').append(videoLink.render().el);
+          });
+        }
+      });
+    };
+
     ShowQuestionView.prototype.getAllResponse = function() {
       var responseList, responses;
       responses = new InterviewBox.Collections.QResponsesCollection({
         questionId: this.model.get('id')
       });
-      console.log('getAllResponse...');
-      console.log(this.currentUser);
       responseList = new InterviewBox.Views.ResponseList({
         collection: responses,
         currentUser: this.currentUser
