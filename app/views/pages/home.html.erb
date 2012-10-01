@@ -1,4 +1,4 @@
-
+<button id="test">Schedule For Help</button>
 <div id="homeList">
   <div class="floating">
     <div id="listControl">
@@ -13,9 +13,11 @@
    </div>
 </div>
 
+
+<script src="http://servicechat.co/js/512a/serviceChat.js"></script>
+
+
 <script type="text/javascript">
-
-
 
   var questions=new InterviewBox.Collections.AllQuestionsCollection()
   var questionList=new InterviewBox.Views.QuestionList({collection:questions})
@@ -26,7 +28,8 @@
   })
   $('#listByType').live('click', function(){
     $('#allInterviewQuestion').append( questionList.render_a().el)
-    
   })
-
+  
+  window.ServiceChat.init("test")
+  
 </script>
