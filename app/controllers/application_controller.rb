@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
+  # for testing  
   def printa(a)
     p "======================"
     p "======================"
