@@ -1,6 +1,7 @@
 class UploadController < ApplicationController
   require 'aws/s3'
   
+  # upload image to aws 
   def uploadImage
     AWS::S3::Base.establish_connection!(
       :access_key_id     => 'AKIAJRHPW4GS2XXBWQXA',
@@ -27,6 +28,7 @@ class UploadController < ApplicationController
     
   end 
   
+  # get the image url 
   def getImage
     image=AWS::S3::S3Object.url_for('testing.png','tradeDev')
     render :json => {:image=>image}

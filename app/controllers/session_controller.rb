@@ -1,7 +1,8 @@
 
 class SessionController < ApplicationController
   
-  
+  # create a session 
+  # authenticate user 
   def create
     auth=request.env["omniauth.auth"]
     if(auth!=nil)
@@ -18,11 +19,12 @@ class SessionController < ApplicationController
     end 
   end
   
+ # logout 
   def destroy
     cookies[:current_user]=""
     redirect_to root_path
   end
-  
+  # generate a token for video  
   def generateToken
       printa "generating token..."
      apiKey='16740792'
@@ -34,7 +36,7 @@ class SessionController < ApplicationController
        :apiKey=>apiKey
      }
   end 
-  
+  # request for video download link 
   def getDownloadLink
     apiKey='16740792'
     location = 'localhost'

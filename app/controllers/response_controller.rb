@@ -1,4 +1,6 @@
 class ResponseController < ApplicationController
+
+  # create a new response
   def new
     apiKey='16740792'
     location = 'localhost'
@@ -19,14 +21,19 @@ class ResponseController < ApplicationController
     response.save
     render :json=>response
   end 
+  
+  # get all response
   def all
-    
-    
-  end
+  end  
+  
+  # get all user's responses
   def userReponses
     user=User.find(params[:userId])
     render :json=> user.response
   end 
+
+  # get all responses that belongs to 
+  # a qeustion
   def responses
     question=Question.find(params[:questionId])
     render :json=> question.response

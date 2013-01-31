@@ -1,3 +1,7 @@
+
+# name: QuestionList
+# purpose:  generate a list of questions 
+
 class InterviewBox.Views.QuestionList extends Backbone.View
   template: JST["backbone/templates/lib/question/questionList"]
   a_template: JST["backbone/templates/lib/question/questionList_a"]
@@ -7,13 +11,15 @@ class InterviewBox.Views.QuestionList extends Backbone.View
     @questions= option['collection']
     @clear='<div style="clear:both;"></div>'
     
-  # renderAll
+  # render a list of all 
+  # questions sorted by date
   render:->
     $(@el).html(@template())
     @loadByTime()
     return this
   
-  # renderByType
+  # render a list of questions 
+  # question type
   render_a:->
     $(@el).html(@a_template())
     @loadByType()
@@ -25,7 +31,7 @@ class InterviewBox.Views.QuestionList extends Backbone.View
     @loadByUser()
     return this
   
-
+  
   loadByTime:->
     self=@
     @questions.fetch success:->
@@ -34,8 +40,12 @@ class InterviewBox.Views.QuestionList extends Backbone.View
         $('#listByTime').append(linkView.render_a().el)
       $('#listByTime').append(self.clear)
 
-    
-  loadByType:->
+
+
+  # ---------------
+  # private methods  
+  # ---------------
+  loadByType:=>
     self=@
     @questions.fetch success:->
       self.questions.each (question)->
@@ -47,14 +57,14 @@ class InterviewBox.Views.QuestionList extends Backbone.View
       $('#byType .technical .content').append(self.clear)
      
 
-  loadByUser:->
+  loadByUser:=>
     self=@
     @questions.fetch success:()->
       self.questions.each (question)->
         newLink=new InterviewBox.Views.ArchiveLinkView({model:question})
         $('#QlistContainer').append newLink.render_d().el
       $('#QlistContainer').append self.clear
-    error:()->
+    error:()=>
       console.log "error"
 
     

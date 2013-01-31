@@ -1,5 +1,7 @@
 class CommentController < ApplicationController
   
+
+  #create a new comment 
   def new
     newComment=Comment.create({
       :content=>params[:content],
@@ -8,6 +10,8 @@ class CommentController < ApplicationController
     })
     render :json=> newComment
   end 
+
+  # get comment by response ID
   def getCommentByResponse
     responseId=params[:responseId]
     comments=Response.find(responseId).comment

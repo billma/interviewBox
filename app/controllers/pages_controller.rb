@@ -1,11 +1,16 @@
 class PagesController < ApplicationController
   
+  # user login page 
+  # check to see if a user is logged in 
   def login
     if cookies[:current_user]!=""
       redirect_to '/home'
     end 
   end
-
+  
+  # user profile page 
+  # if a user is not logged in 
+  # redirect user to login page 
   def profile
     printa(cookies[:current_user])
     if cookies[:current_user]!=""
@@ -18,6 +23,8 @@ class PagesController < ApplicationController
     end 
   end
   
+
+  # home page 
   def home
   end
   

@@ -1,4 +1,7 @@
 class VoteController < ApplicationController
+
+
+  # check to see if a user has voted
   def checkVote
     hasBeenRated=''
     if params[:question_id]!=nil
@@ -16,7 +19,8 @@ class VoteController < ApplicationController
     end 
     render :json=>hasBeenRated
   end 
-
+  
+  # create a vote
   def upVote
     Vote.create({
       :user_id=>cookies[:current_user],
@@ -26,6 +30,7 @@ class VoteController < ApplicationController
     render :json=>{}
   end 
   
+  # remove a vote 
   def downVote
     if params[:question_id]!=nil
       q_id=params[:question_id]
@@ -42,6 +47,9 @@ class VoteController < ApplicationController
     end 
     render :json=>{}
   end 
+
+
+  # get all vote count for a question
   def getVoteCount 
     count=0
     if params[:question_id]!=nil

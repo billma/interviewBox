@@ -1,8 +1,14 @@
+# name Comment
+# purpose: handles all the view related to 
+#          comments
+
 class InterviewBox.Views.Comment extends Backbone.View
   template: JST["backbone/templates/lib/comment/eachComment"]
   template_a:JST["backbone/templates/lib/comment/commentForm"]
   template_b:JST["backbone/templates/lib/comment/commentForm_b"]
   
+
+  # setup events
   events:
     'keydown textarea':'enterComment'
     'focusin textarea':'clearDefaultComment'
@@ -24,7 +30,8 @@ class InterviewBox.Views.Comment extends Backbone.View
   render_a:->
     $(@el).html(@template_a())
     return this
-  # render commebnt form and listing comments
+
+  # render commebnt form and lists comments
   render_b:->
     self=@
     @toggle=false
@@ -59,15 +66,23 @@ class InterviewBox.Views.Comment extends Backbone.View
     $(@el).html(@a_template(@model.toJSON()))
     return this
     
-    
-  toggleComments:->
+ 
+  #-----------------
+  # private methods
+  #-----------------
 
+
+  # show or hide comments
+  toggleComments:=>
     @toggle=!@toggle
     @.$('.comment_b_list').toggle()
     @.$('.link_msg_1').toggle()
     @.$('.link_msg_2').toggle()
-    
-  enterComment:(e)->
+  
+
+  # listen to onkeydown event
+  # to create a new comment
+  enterComment:(e)=>
     if e.keyCode is 13
       e.preventDefault()
       content=@.$('textarea').val()
@@ -75,8 +90,9 @@ class InterviewBox.Views.Comment extends Backbone.View
       response_id=@response.get('id')
       @createNewComment current_user, response_id, content
       @clearDefaultComment()
-      
-  createNewComment:(current_user, response_id, content)->
+  
+  # create a new comment
+  createNewComment:(current_user, response_id, content)=>
     self=@
     $.post '/newComment',{
       current_user:current_user,
@@ -97,11 +113,12 @@ class InterviewBox.Views.Comment extends Backbone.View
       self.$('.comment_b_list_header').show()
       if self.toggle is false 
         self.toggleComments()
-      
-  clearDefaultComment:->
+  
+  # clears textarea after comment input
+  clearDefaultComment:=>
     @.$('textarea').val('')
-    
-  setDefaultComment:->
+  
+  setDefaultComment:=>
     console.log ("..fjdkals")
     @.$('textarea').val('Enter Your Comment...')
   

@@ -1,3 +1,9 @@
+
+
+# name: responselist
+# purpose:  handles all rendering tasks
+#           related to response listing
+
 class InterviewBox.Views.ResponseList extends Backbone.View
   template: JST["backbone/templates/lib/response/responseList"]
 
@@ -7,19 +13,22 @@ class InterviewBox.Views.ResponseList extends Backbone.View
     @clear='<div style="clear:both;"></div>'
   
   
+  # list response with an user icon and commentbox
   render:->
     $(@el).html(@template())
     @List_a()
     return this
     
+  # list response without an user icon
   render_b:->
     $(@el).html(@template())
     @list_b()
     return this
-  # list response with an user icon and commentbox
-  List_a:->
+  #-----------------
+  # private methods
+  # ----------------
+  List_a:=>
     self=@
-
     @responses.fetch success:()->
       self.responses.each (response)->
         console.log 'ResponseList -> list_a...'
@@ -31,8 +40,7 @@ class InterviewBox.Views.ResponseList extends Backbone.View
         self.$('.RlistContainer').append responseView.render_b().el
       self.$('.RlistContainer').append self.clear
   
-  # list respoinse without an user icon
-  list_b:->
+  list_b:=>
     self=@
     @responses.fetch success:()->
       self.responses.each (response)->

@@ -1,67 +1,61 @@
+/* name: app .css 
+ * general css that applies to all 
+ * pages
+ * */
+
 html{
-/*  background:#363636;*/
-  background:url('/images/low_contrast_linen.png');
-}
+  background:url('/images/low_contrast_linen.png');}
 body{
-  background:transparent;
-}
+  background:transparent;}
 
 li{
-  list-style:none;
-}
+  list-style:none;}
 a, a:hover{
-  text-decoration:none;
-}
+  text-decoration:none;}
 
-
-div{
-/*  border:1px dotted grey;*/
-}
-a{
-/*  border:1px solid red;*/
-}
-ul{
-/*  border:1px solid blue;*/
-  margin:0px;
-}
-li{
-/*  border:1px solid green;*/
-}
-form{
-  margin:0px;
-}
+ul,form{
+  margin:0px;}
 
 header{
-  height:100px;
-}
+  height:100px;}
+
 nav{
   position:relative;
   top:50px;
   right:50px;
-  float:right;
- 
-}
+  float:right;}
+
 nav li{
   text-align:center;
   width:100px;
   float:left;
-/*  border:solid 1px #5C5C5C;*/
-  
   margin-left:5px;
   padding:2px;
   border-radius:5px;
-  box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.75) inset, 0 -1px 2px rgba(255, 255, 255, 0.1) inset;
-  
-}
+  box-shadow: 
+    0px -1px 3px rgba(0, 0, 0, 0.75) inset, 
+    0 -1px 2px rgba(255, 255, 255, 0.1) inset;}
+
 nav li a{
-  box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.9), 0 -1px 2px rgba(255, 255, 255, 0.1) ;
+  box-shadow: 
+    0px -1px 2px rgba(0, 0, 0, 0.9), 
+    0 -1px 2px rgba(255, 255, 255, 0.1);
   margin:2px;
   display:block;
   padding:2px;
   border-radius:5px;
-  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#212121), to(#1C1C1C), color-stop(.7,#0D0D0D));
-  color:#CECECE;
-}
+  background:
+    -webkit-gradient(
+        linear, 0% 0%, 0% 100%, 
+        from(#212121), to(#1C1C1C), 
+        color-stop(.7,#0D0D0D));
+  color:#CECECE;}
+
+
+/* shared css 
+ *
+ **/
+
 #main{
   padding:10px;
   border-radius:2px;
@@ -69,7 +63,9 @@ nav li a{
 .floating{
   display:block;
   margin:0 auto;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.75) , 0 0 0 rgba(255, 255, 255, 0.5);
+  box-shadow:
+    1px 1px 10px rgba(0, 0, 0, 0.75) , 
+    0 0 0 rgba(255, 255, 255, 0.5);
   background:transparent;
   border-top-right-radius:5px ;
   border-top-left-radius:5px ;
@@ -86,3 +82,19 @@ nav li a{
 }
 
 
+
+/* login page */
+
+#logo{
+  width:600px;
+  height:200px;
+  border:1px solid red;
+  margin:0 auto;
+}
+#login{
+  display:block;
+  width:500px;
+  height:50px;
+  font-size:20px;
+  line-height:2.2em;
+  margin:20px auto;}

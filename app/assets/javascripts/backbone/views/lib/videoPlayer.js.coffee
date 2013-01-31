@@ -1,3 +1,9 @@
+
+# name: VideoPlayer
+# purpose: handles all views related to 
+#          video playback
+
+
 class InterviewBox.Views.VideoPlayer extends Backbone.View
   template: JST["backbone/templates/lib/video/videoPlayer"]
   a_template: JST["backbone/templates/lib/video/simpleVideo"]
@@ -22,7 +28,9 @@ class InterviewBox.Views.VideoPlayer extends Backbone.View
   closePlayer:->
     $('html').css("overflow", "auto")
     @.remove()
+  
 
+  # load video archive inot a div
   loadArchive:(mode)->
     archiveId=@model.get 'archiveId'
     self=@
@@ -41,7 +49,10 @@ class InterviewBox.Views.VideoPlayer extends Backbone.View
           
       else 
         self.player.loadArchive archiveId 
-
+  
+  # ----------------
+  # private methods
+  # ----------------
   setupPlayer:(recorderManager, archiveId, token,divId, autoPlay)->
     player= recorderManager.displayPlayer archiveId, token, divId, {
       width:400,

@@ -1,3 +1,8 @@
+
+
+# name:      ArchiveLinkView 
+# purpose:   generates question link or response link
+#
 class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   template: JST["backbone/templates/lib/question/eachQuestion_simple"]
   a_template: JST["backbone/templates/lib/question/eachQuestion_fullView"]
@@ -8,7 +13,6 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   
   tagName:'li'
 
-      
   events:
     'click .q_preview':'previewVideo'
     'click .r_preview':'previewVideo'
@@ -22,9 +26,10 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
   # list a question w/o preview 
   render:->
     $(@el).html(@template(@model.toJSON()))
-    
     return this
-  # list a question fullView
+
+
+  # list a question with preview and detail description 
   render_a:->
     self=@
     $.post '/getVoteCount',{question_id:@model.get('id')},(data)->
@@ -67,11 +72,20 @@ class InterviewBox.Views.ArchiveLinkView extends Backbone.View
       $(self.el).html(self.d_template(self.model.toJSON()))
       self.$('div.timeago').timeago()
     return this
+ 
 
-  previewVideo:->
+  # ---------------
+  # private methods  
+  # ---------------
+
+  
+  # show video preview
+  previewVideo:=>
     player=new InterviewBox.Views.VideoPlayer({model:@model})
     $('html').append(player.render().el)
-  getDownloadLink:-> 
+
+  # get download url
+  getDownloadLink:=> 
     self=@
     self.$('.downloading_gif').show()
     self.$('.icon-download-alt').hide()

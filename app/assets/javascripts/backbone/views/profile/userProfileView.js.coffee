@@ -1,3 +1,8 @@
+
+
+# name: UserProfileView
+# purpose: Generate a user profile view
+
 class InterviewBox.Views.UserProfileView extends Backbone.View
   template : JST["backbone/templates/profile/userProfile"]
   tagName:'div'
@@ -15,6 +20,8 @@ class InterviewBox.Views.UserProfileView extends Backbone.View
   loadTemplate:->
     $(@el).html(@template(@model.toJSON()))
   
+
+ 
   activateRecorder:->
     recorder=new InterviewBox.Views.Recorder()
     $('html').append(recorder.renderQuestionRecorder().el)

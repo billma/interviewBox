@@ -1,5 +1,7 @@
 class QuestionController < ApplicationController
 
+
+  # create a new question
   def create 
     apiKey='16740792'
     location = 'localhost'
@@ -19,14 +21,17 @@ class QuestionController < ApplicationController
 
     newQuestion.update_attributes({
       :videoId=>videoId,
-
     })
     newQuestion.save
     render :json=> newQuestion
   end 
+
   def show
     @id=params[:id]
   end
+
+
+  # find question by id
   def getModel
     render :json=> Question.find(params[:id])
   end 
